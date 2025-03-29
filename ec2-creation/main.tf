@@ -28,3 +28,29 @@ resource "aws_instance" "expense-backend" {
   }
   
 }
+
+resource "aws_route53_record" "mysql_record" {
+  zone_id = "Z0135212GWRZC8NQ42PM"
+  name    = "mysql-dev.eternallearnings.shop"
+  type    = "A"
+  ttl     = "10"
+  records = [aws_instance.expense-mysql.private_ip]
+}
+
+
+resource "aws_route53_record" "backend_record" {
+  zone_id = "Z0135212GWRZC8NQ42PM"
+  name    = "backend-dev.eternallearnings.shop"
+  type    = "A"
+  ttl     = "10"
+  records = [aws_instance.expense-backend.private_ip]
+}
+
+
+resource "aws_route53_record" "frontend_record" {
+  zone_id = "Z0135212GWRZC8NQ42PM"
+  name    = "frontend-dev.eternallearnings.shop"
+  type    = "A"
+  ttl     = "10"
+  records = [aws_instance.expense-frontend.public_ip]
+}
