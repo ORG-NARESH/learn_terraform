@@ -4,7 +4,7 @@ variable "env" {
 variable "component" {
   default = {
     frontend = {
-
+ Name = frontend-${env}
       instance_type          = "t3.micro"
       ami                    = "ami-0fcc78c828f981df2"
       vpc_security_group_ids = ["sg-02efeff1df99019a6"]

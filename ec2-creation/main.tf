@@ -11,11 +11,12 @@ resource "aws_instance" "main_instance" {
 
 
 resource "aws_route53_record" "main_dns" {
-  zone_id = "Z0135212GWRZC8NQ42PM"
-  name    = "${each.key}-${var.env}.eternallearnings.shop"
-  type    = "A"
-  ttl     = "10"
-  records = [aws_instance.main_instance.private_ip]
+  for_each = var.component
+  zone_id  = "Z0135212GWRZC8NQ42PM"
+  name     = "${each.key}-${env}.eternallearnings.shop"
+  type     = "A"
+  ttl      = "10"
+  records  = [aws_instance.main_instance.private_ip]
 }
 
 
