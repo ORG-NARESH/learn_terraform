@@ -5,7 +5,7 @@ resource "aws_instance" "main_instance" {
   vpc_security_group_ids = each.value["vpc_security_group_ids"]
 
   tags = {
-    Name = "${each.key}-${env}"
+    Name = "${each.key}-${var.env}"
   }
 }
 
@@ -13,7 +13,7 @@ resource "aws_instance" "main_instance" {
 resource "aws_route53_record" "main_dns" {
   for_each = var.component
   zone_id  = each.value["zone_id"]
-  name     = "${each.key}-${env}.eternallearnings.shop"
+  name     = "${each.key}-${var.env}.eternallearnings.shop"
   type     = "A"
   ttl      = "10"
   records  = [aws_instance.main_instance[each.key].private_ip]
