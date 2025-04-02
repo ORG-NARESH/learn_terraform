@@ -16,7 +16,7 @@ resource "aws_route53_record" "main_dns" {
   name     = "${each.key}-${var.env}.eternallearnings.shop"
   type     = "A"
   ttl      = "10"
-  records  = [aws_instance.main_instance.private_ip]
+  records  = [aws_instance.main_instance[each.key].private_ip]
 }
 
 
