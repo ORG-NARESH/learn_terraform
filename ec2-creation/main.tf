@@ -1,4 +1,4 @@
-resource "aws_instance" "main" {
+resource "aws_instance" "main_instance" {
   for_each               = var.component
   ami                    = each.value["ami"]
   instance_type          = each.value["instance_type"]
@@ -15,7 +15,7 @@ resource "aws_route53_record" "main_dns" {
   name    = "${each.key}-${env}.eternallearnings.shop"
   type    = "A"
   ttl     = "10"
-  records = [aws_instance.main.private_ip]
+  records = [aws_instance.main_instance.private_ip]
 }
 
 
