@@ -1,11 +1,11 @@
 resource "aws_instance" "main" {
-  count                  = 3
+  for_each               = var.component
   ami                    = "ami-0fcc78c828f981df2"
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-02efeff1df99019a6"]
 
   tags = {
-    Name = var.component[count.index]
+    Name = var.component
   }
 }
 # resource "aws_instance" "expense-mysql" {
