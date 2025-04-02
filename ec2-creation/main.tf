@@ -12,7 +12,7 @@ resource "aws_instance" "main_instance" {
 
 resource "aws_route53_record" "main_dns" {
   for_each = var.component
-  zone_id  = "Z0135212GWRZC8NQ42PM"
+  zone_id  = each.value["zone_id"]
   name     = "${each.key}-${var.env}.eternallearnings.shop"
   type     = "A"
   ttl      = "10"
