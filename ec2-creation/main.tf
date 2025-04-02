@@ -5,7 +5,7 @@ resource "aws_instance" "main" {
   vpc_security_group_ids = ["sg-02efeff1df99019a6"]
 
   tags = {
-    Name = var.component[each.key["Name"]]
+    Name = var.component[each.key[Name]]
   }
 }
 # resource "aws_instance" "expense-mysql" {
