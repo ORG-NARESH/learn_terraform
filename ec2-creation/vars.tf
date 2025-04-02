@@ -1,3 +1,7 @@
+variable "env" {
+  default = ""
+}
+
 variable "component" {
   default = {
     frontend = {
