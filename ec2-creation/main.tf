@@ -7,7 +7,6 @@ resource "aws_instance" "main" {
   tags = {
     Name = var.component[count.index]
   }
-
 }
 # resource "aws_instance" "expense-mysql" {
 #   ami                     = "ami-0fcc78c828f981df2"
