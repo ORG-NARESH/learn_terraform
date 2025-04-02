@@ -1,13 +1,13 @@
 resource "aws_instance" "main" {
-  count = 3
-  ami                     = "ami-0fcc78c828f981df2"
-  instance_type           = "t3.micro"
+  count                  = 3
+  ami                    = "ami-0fcc78c828f981df2"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-02efeff1df99019a6"]
 
-   tags = {
-    Name = var.component
+  tags = {
+    Name = var.component[count.index]
   }
-  
+
 }
 # resource "aws_instance" "expense-mysql" {
 #   ami                     = "ami-0fcc78c828f981df2"
@@ -17,7 +17,7 @@ resource "aws_instance" "main" {
 #    tags = {
 #     Name = "mysql-dev"
 #   }
-  
+
 # }
 # resource "aws_instance" "expense-backend" {
 #   ami                     = "ami-0fcc78c828f981df2"
@@ -27,7 +27,7 @@ resource "aws_instance" "main" {
 #    tags = {
 #     Name = "backend-dev"
 #   }
-  
+
 # }
 
 # resource "aws_route53_record" "mysql_record" {

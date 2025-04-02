@@ -5,14 +5,14 @@ variable "component" {
   default = {
 
     frontend = {
-        Name =  "frontend"
+      Name = "frontend"
     }
     mysql = {
-        Name = "mysql"
+      Name = "mysql"
     }
-      backend = {
-        Name = "backend"
+    backend = {
+      Name = "backend"
     }
-  
-   }
+
+  }
 }
