@@ -19,12 +19,6 @@ variable "component" {
       instance_type = "t3.small"
       ami           = "ami-0fcc78c828f981df2"
     }
-    db = {
-      Name          = "db"
-      instance_type = "t3.small"
-      ami           = "ami-0fcc78c828f981df2"
-    }
-
 
   }
 }
