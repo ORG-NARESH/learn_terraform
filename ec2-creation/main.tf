@@ -1,6 +1,6 @@
 resource "aws_instance" "main" {
   for_each               = var.component
-  ami                    = "ami-0fcc78c828f981df2"
+  ami                    = each.value
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-02efeff1df99019a6"]
 
