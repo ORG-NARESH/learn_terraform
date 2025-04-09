@@ -1,5 +1,5 @@
 module "expense"{
-    source = "git@github.com:https://github.com/ORG-NARESH/org-modules-EC2-R53.git"
+    source = "git::https://github.com/ORG-NARESH/org-modules-EC2-R53.git"
     ami = var.ami
     env = var.env
     vpc_security_group_ids = var.vpc_security_group_ids
